@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 62.5%;
+  font-family: 'Roboto', sans-serif;
+}
+
+#mainContainer {
+  width: 100%;
+  height: fit-content;
+  min-height: 100vh;
+  background-color: #2d94cb;
+
+  #divInputTask {
+    width: 100%;
+    padding-top: 4rem;
+    font-size: 4rem;
+    display: flex;
+    justify-content: center;
+
+    #inputTask {
+      width: 40%;
+      padding: 1rem;
+      background-color: white;
+      border: 1px solid white;
+      border-right: 1px solid black;
+      border-bottom-left-radius: 30px;
+      border-top-left-radius: 30px;
+    }
+
+    #projectCreate {
+      padding: 1rem;
+      background-color: white;
+      border: 1px solid white;
+      border-bottom-right-radius: 30px;
+      border-top-right-radius: 30px;
+      border-left: none;
+    }
+  }
+
+  #projectContainer {
+    width: 100%;
+    height: fit-content;
+    min-height: 60rem;
+    margin-top: 4rem;
+    padding: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    .project {
+      width: 30%;
+      height: fit-content;
+      min-height: 35rem;
+      margin-bottom: 2rem;
+      background-color: rgba(255, 255, 255, 0.62);
+      border: 1px solid red;
+      border-radius: 15px;
+
+      h2 {
+        padding: 1rem;
+        font-size: 3rem;
+        color: #081a24;
+      }
+
+      input {
+        width: 50%;
+        margin-left: 12.5%;
+        font-size: 2rem;
+      }
+
+      button {
+        width: 25%;
+        font-size: 2rem;
+      }
+
+      .taskList {
+
+        width: 100%;
+        height: fit-content;
+        padding: 1rem;
+
+        .taskContainer {
+
+
+          .task {
+            width: 75%;
+            padding-left: 0.5rem;
+            font-size: 2rem;
+            display: inline-block;
+            overflow: hidden;
+          }
+
+          .clock {
+            width: 20%;
+            font-size: 4rem;
+            display: inline-block;
+            color: rgba(255, 2, 2, 0.71);
+            text-align: end;
+
+            .spanTiming {
+              display: none;
+            }
+          }
+
+          .clock:hover {
+
+            .spanTiming{
+              display: inline;
+              font-size: 1rem;
+            }
+
+          }
+        }
+
+      }
+    }
+  }
+}
+
