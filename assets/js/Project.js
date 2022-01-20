@@ -10,7 +10,6 @@ class Project {
 
         this.initDom();
 
-
         if (clocks) {
             for (const clock of clocks) {
                 this.addTask(clock.hours, clock.minutes, clock.seconds, clock.title);
@@ -55,9 +54,8 @@ class Project {
             clockObject = new Clock(this.div.querySelector('input').value);
         }
 
-
         clockObject.para.addEventListener('click', function () {
-            /*console.log(JSON.stringify($this));*/
+
             window.localStorage.setItem($this.title, JSON.stringify($this));
         })
 
@@ -70,7 +68,6 @@ class Project {
         taskContainer.append(hr);
 
         this.div.querySelector('input').value = '';
-
 
     }
 

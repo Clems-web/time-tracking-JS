@@ -16,13 +16,9 @@ class Clock {
             this.seconds = 0;
         }
 
-
         this.para = document.createElement('p');
         this.task = document.createElement('p');
         this.title = title;
-
-
-
 
         this.initDom();
 
@@ -33,7 +29,6 @@ class Clock {
     initDom() {
         this.task.classList.add('task');
         this.task.innerHTML = this.title;
-
 
         this.para.classList.add('clock');
         this.para.innerHTML = `<span class="spanTiming">${this.timing()}</span>` + `<i class="fas fa-clock"></i>`;
@@ -47,7 +42,6 @@ class Clock {
                 for (const para of paras) {
                     para.setAttribute('time', 'false');
                     para.style.color = 'red';
-
                 }
 
                 this.flagClock = true;
@@ -60,7 +54,6 @@ class Clock {
                     this.timerInit = true;
                     setInterval(this.time.bind(this), 1000);
                 }
-
             }
             else {
                 this.flagClock = false;
@@ -72,7 +65,6 @@ class Clock {
     }
 
     time() {
-
 
         if (this.flagClock && (this.para.getAttribute('time') === 'true')) {
 
@@ -91,7 +83,6 @@ class Clock {
             const span = this.para.querySelector('span');
             span.innerHTML = this.timing();
         }
-
     }
 
     timing() {
