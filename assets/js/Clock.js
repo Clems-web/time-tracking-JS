@@ -1,15 +1,26 @@
 class Clock {
 
-    constructor() {
+    constructor(title, hours = null, minutes = null, seconds = null) {
 
         this.flagClock = false;
         this.timerInit = false;
 
-        this.hours = 0;
-        this.minutes = 0;
-        this.seconds = 0;
+        if (hours !== null && minutes !== null && seconds !== null) {
+            this.hours = hours;
+            this.minutes = minutes;
+            this.seconds = seconds;
+        }
+        else {
+            this.hours = 0;
+            this.minutes = 0;
+            this.seconds = 0;
+        }
+
 
         this.para = document.createElement('p');
+        this.task = document.createElement('p');
+        this.title = title;
+
 
 
 
@@ -20,6 +31,10 @@ class Clock {
 
 
     initDom() {
+        this.task.classList.add('task');
+        this.task.innerHTML = this.title;
+
+
         this.para.classList.add('clock');
         this.para.innerHTML = `<span class="spanTiming">${this.timing()}</span>` + `<i class="fas fa-clock"></i>`;
         this.para.setAttribute('time', 'false');
@@ -72,8 +87,6 @@ class Clock {
                 this.minutes = 0;
                 this.hours++;
             }
-
-            console.log(this.hours + 'h '+ this.minutes + 'm ' + this.seconds + 's');
 
             const span = this.para.querySelector('span');
             span.innerHTML = this.timing();

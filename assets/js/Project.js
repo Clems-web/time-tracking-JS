@@ -2,19 +2,25 @@ import {Clock} from "./Clock";
 
 class Project {
 
-    constructor(title) {
-        this.clocks = [];
+    constructor(title, clocks = null) {
 
         this.div = document.createElement('div');
         this.title = title;
-
+        this.clocks = [];
 
         this.initDom();
 
 
+        if (clocks) {
+            for (const clock of clocks) {
+                this.addTask(clock.hours, clock.minutes, clock.seconds, clock.title);
+            }
+        }
     }
 
     initDom() {
+        let projectContainer = document.getElementById('projectContainer');
+        projectContainer.append(this.div);
         this.div.classList.add('project');
         this.div.innerHTML =
             `   
@@ -34,28 +40,36 @@ class Project {
         });
     }
 
-    addTask() {
+    addTask(hours = null, minutes = null, seconds = null, title = null) {
 
+        let $this = this;
         const taskContainer = document.createElement('div');
+        this.div.querySelector('.taskList').append(taskContainer);
         taskContainer.classList.add('taskContainer');
+        let clockObject = null;
 
-        const para = document.createElement('p');
-        para.classList.add('task');
-        para.innerHTML = this.div.querySelector('input').value;
+        if (hours !== null && minutes !== null && seconds !== null && title !== null) {
+            clockObject = new Clock(title, hours, minutes, seconds);
+        }
+        else {
+            clockObject = new Clock(this.div.querySelector('input').value);
+        }
 
-        const clockObject = new Clock();
+
+        clockObject.para.addEventListener('click', function () {
+            /*console.log(JSON.stringify($this));*/
+            window.localStorage.setItem($this.title, JSON.stringify($this));
+        })
+
         this.clocks.push(clockObject);
 
-
-        taskContainer.append(para);
+        taskContainer.append(clockObject.task);
         taskContainer.append(clockObject.para);
 
         let hr = document.createElement('hr')
         taskContainer.append(hr);
 
         this.div.querySelector('input').value = '';
-
-        this.div.querySelector('.taskList').append(taskContainer);
 
 
     }
