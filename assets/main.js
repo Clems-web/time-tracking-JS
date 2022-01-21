@@ -53,9 +53,9 @@ for (let projet of Object.keys(storage)) {
             tabSeconds.push(clock.seconds);
         }
 
-        let hours = tabHours.reduce(reducer);
-        let minutes = tabMinutes.reduce(reducer);
-        let seconds = tabSeconds.reduce(reducer);
+        hours = tabHours.reduce(reducer);
+        minutes = tabMinutes.reduce(reducer);
+        seconds = tabSeconds.reduce(reducer);
 
 
         if (tabSeconds.reduce(reducer) > 59) {
@@ -67,7 +67,7 @@ for (let projet of Object.keys(storage)) {
             minutes = minutes % 60;
             hours++;
         }
-        
+
         this.querySelector('h2').innerHTML = hours + 'h ' + minutes + 'm ' + seconds + 's';
 
     });
