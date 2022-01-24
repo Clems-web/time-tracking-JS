@@ -85,6 +85,7 @@
         font-size: 2rem;
         color: red;
         margin-left: 1rem;
+        margin-bottom: 1rem;
       }
 
       .taskList {
@@ -109,10 +110,6 @@
             display: inline-block;
             color: rgba(236, 152, 46, 0.96);
             text-align: end;
-
-            .spanTiming {
-              display: none;
-            }
           }
         }
 

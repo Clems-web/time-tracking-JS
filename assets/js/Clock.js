@@ -1,15 +1,25 @@
 class Clock {
 
+    /**
+     * Create a Clock Object
+     * @param title
+     * @param hours
+     * @param minutes
+     * @param seconds
+     */
     constructor(title, hours = null, minutes = null, seconds = null) {
 
         this.flagClock = false;
         this.timerInit = false;
 
+        // If params has been given then it's a task stored In LocalStorage
         if (hours !== null && minutes !== null && seconds !== null) {
             this.hours = hours;
             this.minutes = minutes;
             this.seconds = seconds;
         }
+
+        // Else it's a new task
         else {
             this.hours = 0;
             this.minutes = 0;
@@ -25,17 +35,17 @@ class Clock {
     }
 
 
-
+    // Init Clock Object
     initDom() {
         this.task.classList.add('task');
         this.task.innerHTML = this.title;
 
         this.para.classList.add('clock');
-        this.para.innerHTML = `<span class="spanTiming">${this.timing()}</span>` + `<i class="fas fa-clock"></i>`;
+        this.para.innerHTML = `<i class="fas fa-clock"></i>`;
         this.para.setAttribute('time', 'false');
         this.para.querySelector("i").addEventListener('click', () => {
 
-
+            // If we start to track time on a task then others task's time tracking stop
             if (!this.flagClock) {
                 const paras = document.querySelectorAll('.clock');
 
@@ -49,12 +59,14 @@ class Clock {
                 this.para.setAttribute('time', 'true');
                 this.para.style.color = 'green';
 
+                // Start tracking time by calling Object Clock's method "time" every 60 seconds
                 if (!this.timerInit) {
 
                     this.timerInit = true;
                     setInterval(this.time.bind(this), 1000);
                 }
             }
+            // Else we stop time tracking for this task
             else {
                 this.flagClock = false;
 
@@ -64,6 +76,7 @@ class Clock {
         });
     }
 
+    // Function to track time
     time() {
 
         if (this.flagClock && (this.para.getAttribute('time') === 'true')) {
@@ -79,15 +92,9 @@ class Clock {
                 this.minutes = 0;
                 this.hours++;
             }
-
-            const span = this.para.querySelector('span');
-            span.innerHTML = this.timing();
         }
     }
 
-    timing() {
-        return this.hours + 'h '+ this.minutes + 'm ' + this.seconds + 's';
-    }
 
 }
 
