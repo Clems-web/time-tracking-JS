@@ -81,8 +81,13 @@
         border-radius: 5px;
       }
 
-      .taskList {
+      .fa-trash-alt {
+        font-size: 2rem;
+        color: red;
+        margin-left: 1rem;
+      }
 
+      .taskList {
         width: 100%;
         height: fit-content;
         padding: 1rem;
@@ -102,21 +107,12 @@
             width: 20%;
             font-size: 4rem;
             display: inline-block;
-            color: rgba(255, 2, 2, 0.71);
+            color: rgba(236, 152, 46, 0.96);
             text-align: end;
 
             .spanTiming {
               display: none;
             }
-          }
-
-          .clock:hover {
-
-            .spanTiming{
-              display: inline;
-              font-size: 1rem;
-            }
-
           }
         }
 

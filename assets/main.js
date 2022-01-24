@@ -73,10 +73,19 @@ for (let projet of Object.keys(storage)) {
     });
 
     essai.div.addEventListener('mouseleave', function () {
-        this.querySelector('h2'). innerHTML = projet.title;
+        this.querySelector('h2').innerHTML = projet.title;
     });
 
+    let trashCan = document.createElement('i');
+    trashCan.classList.add('far', 'fa-trash-alt');
 
+    trashCan.addEventListener('click', function () {
+        storage.removeItem(essai.title);
+        this.parentElement.remove();
+    });
+
+    essai.div.append(trashCan);
+    
 }
 
 button.addEventListener('click', function () {

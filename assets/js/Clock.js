@@ -41,7 +41,7 @@ class Clock {
 
                 for (const para of paras) {
                     para.setAttribute('time', 'false');
-                    para.style.color = 'red';
+                    para.style.color = 'rgba(236, 152, 46, 0.96)';
                 }
 
                 this.flagClock = true;
@@ -59,7 +59,7 @@ class Clock {
                 this.flagClock = false;
 
                 this.para.setAttribute('time', 'false');
-                this.para.style.color = 'red';
+                this.para.style.color = 'rgba(236, 152, 46, 0.96)';
             }
         });
     }
