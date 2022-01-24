@@ -12,7 +12,7 @@ class Clock {
         this.flagClock = false;
         this.timerInit = false;
 
-        // If params has been given then it's a task stored In LocalStorage
+        // If time's params has been given then it's a task stored In LocalStorage
         if (hours !== null && minutes !== null && seconds !== null) {
             this.hours = hours;
             this.minutes = minutes;
